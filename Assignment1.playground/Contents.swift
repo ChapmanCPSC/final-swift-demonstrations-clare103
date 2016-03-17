@@ -1,5 +1,6 @@
 //: Playground - noun: a place where people can play
 
+
 import UIKit
 
 //OPTIONAL TYPES
@@ -128,4 +129,124 @@ fruit["orange"] = 3
 
 //lol string then int
 print(fruit["orange"])
+
+
+////////////////////////////////APPENDED SECTION/////////////////////////////////////////////
+
+
+//OPTIONAL RETURNING TYPES
+
+func minMax(array: [Int]) -> (Int)?{
+    if array.isEmpty{return nil}
+    
+    else{
+    return array[0];
+    }
+}
+
+//FAILABLE INITIALIZERS
+
+struct Animal {
+    let species: String
+    
+    init?(species: String){
+        if species.isEmpty { return nil }
+        self.species = species
+    }
+    
+}
+
+// OVERRIDE METHODS and CLASS METHODS
+
+class bloop {
+    
+    var name: String = "hiro"
+    
+    func printName(){
+        print(name)
+    }
+    
+}
+
+class bleep: bloop{
+    
+    var zame: String = "hero"
+    
+    override func printName() {
+        print(zame)
+        print(zame)
+    }
+}
+
+//TYPE CASTING
+if let movie = "bloop" as? String
+{
+    print(movie)
+}
+
+var num: Int = 0
+
+var word = "\(num)"
+
+//Array Enumeration
+var shoppingList: [String] = ["Eggs", "Milk", "Bread", "Cheese"]
+
+for(index, value) in shoppingList.enumerate(){
+    print("Item \(index + 1): \(value)")
+}
+
+
+//DICTIONARY ENUMERATION
+
+var airports = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+
+for(airportCode, airportName) in airports {
+    print("\(airportCode): \(airportName)")
+}
+
+//CONDITIONAL BINDING
+
+protocol Usable{
+    func use()
+}
+
+class Thing: Usable{
+    func use(){
+        print("you use the thing")
+    }
+}
+
+let thing = Thing()
+
+if let usableThing = thing as Usable?
+{
+    usableThing.use()
+}
+else
+{
+    print("cant use that")
+}
+
+
+//EXTENSIONS
+extension Double{
+    var mm: Double{return self / 1000.0}
+}
+
+let oneInch = 25.4.mm
+print(oneInch)
+
+//ERROR HANDLING
+
+func encryptString(word: String, withPassword: String){
+    print("bloop")
+}
+
+do {
+    let encrypted = try encryptString("secret information", withPassword: "12345")
+    print(encrypted)
+}catch {
+    print("something went wrong")
+}
+
 
